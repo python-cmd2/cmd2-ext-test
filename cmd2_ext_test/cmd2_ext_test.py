@@ -30,3 +30,15 @@ class ExternalTestMixin:
 
         finally:
             self._in_py = False
+
+    def fixture_setup(self):
+        """Replicates the behavior of `cmdloop()` preparing the state of the application"""
+        for func in self._preloop_hooks:
+            func()
+        self.preloop()
+
+    def fixture_teardown(self):
+        """Replicates the behavior of `cmdloop()` tearing down the application"""
+        for func in self._postloop_hooks:
+            func()
+        self.postloop()

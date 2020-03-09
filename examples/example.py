@@ -26,7 +26,13 @@ class ExampleTester(cmd2_ext_test.ExternalTestMixin, Example):
 if __name__ == '__main__':
     app = ExampleTester()
 
-    out = app.app_cmd("something")
-    assert isinstance(out, cmd2.CommandResult)
+    try:
+        app.fixture_setup()
 
-    assert out.data == 5
+        out = app.app_cmd("something")
+        assert isinstance(out, cmd2.CommandResult)
+
+        assert out.data == 5
+
+    finally:
+        app.fixture_teardown()

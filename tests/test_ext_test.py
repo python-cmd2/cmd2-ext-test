@@ -48,7 +48,9 @@ class ExampleTester(cmd2_ext_test.ExternalTestMixin, ExampleApp):
 @pytest.fixture
 def example_app():
     app = ExampleTester()
-    return app
+    app.fixture_setup()
+    yield app
+    app.fixture_teardown()
 
 
 #####
