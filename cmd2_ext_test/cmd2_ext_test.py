@@ -26,7 +26,7 @@ class ExternalTestMixin:
         try:
             self._in_py = True
 
-            return self._pybridge(command, echo)
+            return self._pybridge(command, echo=echo)
 
         finally:
             self._in_py = False
