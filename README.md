@@ -1,3 +1,7 @@
+# External Test Plugin has been moved into the cmd2 repository
+
+You can see the latest information in [the new home here](https://github.com/python-cmd2/cmd2/tree/master/plugins/ext_test).
+
 # cmd2 External Test Plugin
 
 ## Table of Contents
